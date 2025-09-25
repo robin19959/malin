@@ -1,24 +1,34 @@
 import React, { useState } from "react";
+import Home from "./components/Home";
+import QuizMenu from "./components/QuizMenu";
+import Quiz from "./components/Quiz";
+import EscapeMenu from "./components/EscapeMenu";
+import EscapeRoom from "./components/EscapeRoom";
+import './App.css';
+
 
 function App() {
-  const [answer, setAnswer] = useState(null);
+  const [page, setPage] = useState("home");
+  const [selectedQuiz, setSelectedQuiz] = useState(null);
+  const [selectedRoom, setSelectedRoom] = useState(null);
+
+  const goToQuiz = (quizId) => {
+    setSelectedQuiz(quizId);
+    setPage("quiz");
+  };
+
+  const goToEscapeRoom = (roomId) => {
+    setSelectedRoom(roomId);
+    setPage("escapeRoom");
+  };
 
   return (
-    <div style={{ maxWidth: "600px", margin: "auto", padding: "20px" }}>
-      <h1>Quiz: Vad föreställer bilden?</h1>
-      <img 
-        src="https://via.placeholder.com/400x200" 
-        alt="quiz" 
-        style={{ width: "100%", borderRadius: "8px" }} 
-      />
-      
-      <div style={{ marginTop: "20px" }}>
-        <button onClick={() => setAnswer("Rätt!")}>Hund</button>
-        <button onClick={() => setAnswer("Fel!")}>Katt</button>
-        <button onClick={() => setAnswer("Fel!")}>Bil</button>
-      </div>
-
-      {answer && <p style={{ marginTop: "20px" }}>{answer}</p>}
+    <div className="App">
+      {page === "home" && <Home setPage={setPage} />}
+      {page === "quizMenu" && <QuizMenu goToQuiz={goToQuiz} goBack={() => setPage("home")} />}
+      {page === "quiz" && <Quiz quizId={selectedQuiz} goBack={() => setPage("quizMenu")} />}
+      {page === "escapeMenu" && <EscapeMenu goToRoom={goToEscapeRoom} goBack={() => setPage("home")} />}
+      {page === "escapeRoom" && <EscapeRoom roomId={selectedRoom} goBack={() => setPage("escapeMenu")} />}
     </div>
   );
 }

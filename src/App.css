@@ -1,38 +1,83 @@
+/* App.css - uppdaterad med färg och boxar */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5; /* ljusgrå bakgrund för hela sidan */
+}
+
 .App {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Boxar för quiz och escape rooms */
+.box {
+  background-color: #ffffff; /* vit box */
+  border: 2px solid #cccccc; /* ljusgrå kant */
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+}
+
+/* Rubriker */
+h1, h2 {
+  color: #333333;
+}
+
+/* Knappar */
+button {
+  background-color: #61dafb; /* React-blå */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #21a1f1;
+  transform: scale(1.05);
+}
+
+/* Grid för escape rooms */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.room {
+  background-color: #e0e0e0; /* ljusgrå bakgrund */
+  border: 2px solid #b0b0b0;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.room:hover {
+  background-color: #d0d0d0;
+  transform: scale(1.05);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Tillbaka-knapp */
+.back-button {
+  background-color: #f28b82; /* rödaktig */
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.back-button:hover {
+  background-color: #e06666;
+  transform: scale(1.05);
 }
