@@ -1,39 +1,35 @@
-import React, { useState } from "react";
-import EscapeRoom from "./EscapeRoom";
+import React from "react";
+import "./EscapeMenu.css";
 
-const rooms = [
-  { id: 1, name: "Rum 1", img: "https://via.placeholder.com/150" },
-  { id: 2, name: "Rum 2", img: "https://via.placeholder.com/150" },
-  { id: 3, name: "Rum 3", img: "https://via.placeholder.com/150" },
-  { id: 4, name: "Rum 4", img: "https://via.placeholder.com/150" },
-];
+function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack }) {
+  const game = escapeGames.find(g => g.id === escapeGameId);
 
-function EscapeMenu({ goBack }) {
-  const [currentRoom, setCurrentRoom] = useState(null);
-
-  if (currentRoom !== null) {
+  if (!game) {
     return (
-      <EscapeRoom
-        room={rooms.find((r) => r.id === currentRoom)}
-        goBack={() => setCurrentRoom(null)}
-      />
+      <div className="escape-menu-container">
+        <h2>Spelet hittades inte</h2>
+        <button className="back-btn" onClick={goBack}>Tillbaka</button>
+      </div>
     );
   }
 
   return (
-    <div className="escape-menu">
-      <h2>Escape Games</h2>
-      <div className="room-grid">
-        {rooms.map((room) => (
-          <div key={room.id} className="room-box" onClick={() => setCurrentRoom(room.id)}>
-            <img src={room.img} alt={room.name} />
-            <p>{room.name}</p>
+    <div className="escape-menu-container">
+      <h2>{game.name}</h2>
+      <div className="rooms-grid">
+        {game.rooms.map(room => (
+          <div
+            key={room.id}
+            className="room-card"
+            onClick={() => goToRoom(room.id)}
+            tabIndex={0}
+          >
+            <img src={room.img} alt={room.name} className="room-img" />
+            <div className="room-name">{room.name}</div>
           </div>
         ))}
       </div>
-      <button className="back-btn" onClick={goBack}>
-        Tillbaka
-      </button>
+      <button className="back-btn" onClick={goBack}>Tillbaka</button>
     </div>
   );
 }

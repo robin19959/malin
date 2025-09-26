@@ -2,15 +2,24 @@ import React, { useState } from "react";
 import "./Home.css";
 
 const skattjakter = Array.from({ length: 15 }, (_, i) => `Skattjakt ${i + 1}`);
-const escapeRooms = Array.from({ length: 15 }, (_, i) => `Escape Room ${i + 1}`);
 
-function Home({ setPage, setSelectedQuiz, setSelectedRoom }) {
+const escapeGames = [
+  { id: 1, name: "Rymdäventyret" },
+  { id: 2, name: "Djungeljakten" },
+  { id: 3, name: "Slottets gåta" }
+  // Lägg till fler spel här!
+];
+
+function Home({ setPage, setSelectedQuiz, setSelectedEscapeGame }) {
   const [showSkattjakt, setShowSkattjakt] = useState(false);
-  const [showEscape, setShowEscape] = useState(false);
+  const [showEscapeGames, setShowEscapeGames] = useState(false);
 
   return (
     <div className="home-container">
-      <h1>Välkommen<br /><span className="byline">by MoreByMalin</span></h1>
+      <h1>
+        Välkommen<br />
+        <span className="byline">by morbymalin</span>
+      </h1>
       <div className="options">
         <div className="dropdown">
           <button
@@ -39,22 +48,22 @@ function Home({ setPage, setSelectedQuiz, setSelectedRoom }) {
         <div className="dropdown">
           <button
             className="home-btn"
-            onClick={() => setShowEscape((v) => !v)}
+            onClick={() => setShowEscapeGames((v) => !v)}
           >
-            Escape Room ▼
+            Escape Games ▼
           </button>
-          {showEscape && (
+          {showEscapeGames && (
             <div className="dropdown-list">
-              {escapeRooms.map((name, idx) => (
+              {escapeGames.map((game) => (
                 <button
-                  key={name}
+                  key={game.id}
                   className="dropdown-item"
                   onClick={() => {
-                    setSelectedRoom(idx + 1);
-                    setPage("escapeRoom");
+                    setSelectedEscapeGame(game.id);
+                    setPage("escapeMenu");
                   }}
                 >
-                  {name}
+                  {game.name}
                 </button>
               ))}
             </div>

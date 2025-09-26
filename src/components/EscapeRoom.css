@@ -1,0 +1,167 @@
+.room-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 120vh; /* eller t.ex. 130vh om du vill ha ännu mer utrymme */
+  background: linear-gradient(135deg, #a259ff 0%, #6a1b9a 100%);
+  padding: 24px 0 0 0;
+}
+
+.room-img-large {
+  width: 90vw;
+  max-width: 400px;
+  border-radius: 18px;
+  margin: 18px 0;
+  box-shadow: 0 4px 16px rgba(162, 89, 255, 0.18);
+}
+
+h2 {
+  color: #fff;
+  margin-top: 12px;
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+}
+
+.question-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 16px;
+  margin-top: 12px;
+  width: 90vw;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(162, 89, 255, 0.10);
+  text-align: center;
+}
+
+.room-input {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #a259ff;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 220px;
+}
+
+.check-btn {
+  margin-top: 12px;
+  background: #a259ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.result {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #6a1b9a;
+}
+
+.back-btn {
+  align-self: flex-start;
+  margin: 16px 0 0 16px;
+  background: #fff;
+  color: #a259ff;
+  border: none;
+  border-radius: 16px;
+  padding: 8px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(162, 89, 255, 0.10);
+  transition: background 0.2s, color 0.2s;
+}
+
+.back-btn:hover {
+  background: #a259ff;
+  color: #fff;
+}
+
+.dropdown-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.mini-dropdown {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid #a259ff;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 0;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.color-picker-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.color-picker-cell {
+  position: relative;
+}
+
+.color-picker-selected {
+  width: 38px;
+  height: 38px;
+  border: 2px solid #a259ff;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: bold;
+  outline: none;
+}
+
+.color-placeholder {
+  color: #a259ff;
+  font-size: 0.95rem;
+}
+
+.color-square {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: inline-block;
+  margin: 0 auto;
+  border: 1.5px solid #ccc;
+  cursor: pointer;
+}
+
+.color-picker-selected:focus .color-picker-options,
+.color-picker-selected:hover .color-picker-options {
+  display: flex;
+}
+
+.color-picker-options {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  border: 1.5px solid #a259ff;
+  border-radius: 8px;
+  padding: 6px 2px;
+  box-shadow: 0 2px 8px rgba(162, 89, 255, 0.10);
+  min-width: 38px;
+  gap: 6px;
+}
