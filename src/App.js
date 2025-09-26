@@ -24,7 +24,13 @@ function App() {
 
   return (
     <div className="App">
-      {page === "home" && <Home setPage={setPage} />}
+      {page === "home" && (
+        <Home
+          setPage={setPage}
+          setSelectedQuiz={setSelectedQuiz}
+          setSelectedRoom={setSelectedRoom}
+        />
+      )}
       {page === "quizMenu" && <QuizMenu goToQuiz={goToQuiz} goBack={() => setPage("home")} />}
       {page === "quiz" && <Quiz quizId={selectedQuiz} goBack={() => setPage("quizMenu")} />}
       {page === "escapeMenu" && <EscapeMenu goToRoom={goToEscapeRoom} goBack={() => setPage("home")} />}

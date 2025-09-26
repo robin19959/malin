@@ -1,60 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
-function EscapeRoom({ setPage, roomId }) {
-  const [textAnswer, setTextAnswer] = useState("");
-  const [checkboxAnswer, setCheckboxAnswer] = useState([]);
-  const [dropdownAnswer, setDropdownAnswer] = useState("");
-
-  const handleCheckbox = (option) => {
-    setCheckboxAnswer(prev =>
-      prev.includes(option) ? prev.filter(o => o !== option) : [...prev, option]
-    );
-  };
-
-  const submitAnswer = () => {
-    alert(
-      `Text: ${textAnswer}\nCheckbox: ${checkboxAnswer.join(", ")}\nDropdown: ${dropdownAnswer}`
-    );
-    // Rensa svaren
-    setTextAnswer("");
-    setCheckboxAnswer([]);
-    setDropdownAnswer("");
-  };
-
+function EscapeRoom({ room, goBack }) {
   return (
     <div className="escape-room">
-      <h2>Rum {roomId}</h2>
-
-      <div className="question">
-        <p>Textfråga: Skriv ditt svar</p>
-        <input value={textAnswer} onChange={(e) => setTextAnswer(e.target.value)} />
-      </div>
-
-      <div className="question">
-        <p>Checkboxfråga: Välj alternativ</p>
-        {["A", "B", "C"].map(option => (
-          <label key={option}>
-            <input
-              type="checkbox"
-              checked={checkboxAnswer.includes(option)}
-              onChange={() => handleCheckbox(option)}
-            /> {option}
-          </label>
-        ))}
-      </div>
-
-      <div className="question">
-        <p>Dropdownfråga: Välj ett alternativ</p>
-        <select value={dropdownAnswer} onChange={(e) => setDropdownAnswer(e.target.value)}>
-          <option value="">Välj</option>
-          <option value="X">X</option>
-          <option value="Y">Y</option>
-          <option value="Z">Z</option>
-        </select>
-      </div>
-
-      <button onClick={submitAnswer}>Skicka svar</button>
-      <button onClick={() => setPage("escapeMenu")}>Tillbaka till rum</button>
+      <h2>{room.name}</h2>
+      <img src={room.img} alt={room.name} style={{ width: "300px", marginBottom: "20px" }} />
+      <p>Här kan man lägga in utmaningar, ledtrådar eller quiz för rummet.</p>
+      <button className="back-btn" onClick={goBack}>
+        Tillbaka till alla rum
+      </button>
     </div>
   );
 }
