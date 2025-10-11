@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+# Skattjakter & Escape Rooms App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En enkel React-app för att köra interaktiva skattjakter och escape rooms. All speldata ligger samlad i `src/data/gamesData.js` för att det ska vara lätt att lägga till nya spel utan att röra komponentkoden.
 
-## Available Scripts
+## Köra lokalt
 
-In the project directory, you can run:
+```bash
+npm install
+npm start
+```
 
-### `npm start`
+Öppna http://localhost:3000 i webbläsaren.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Struktur
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Viktiga mappar/filer:
 
-### `npm test`
+- `src/App.js` – Routing/logik mellan vyer (home, skattjakt, escapeMenu, escapeRoom).
+- `src/components/` – Presentationskomponenter (Home, Skattjakt, EscapeMenu, EscapeRoom + deras CSS).
+- `src/data/gamesData.js` – Alla skattjakter (`skattjakter`) och escape games (`escapeGames`).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Lägga till en ny skattjakt
 
-### `npm run build`
+I `gamesData.js`, lägg till ett objekt i arrayen `skattjakter`:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```js
+export const skattjakter = [
+	// ...befintliga
+	{
+		id: 4,
+		name: "Min nya jakt",
+		questions: [
+			{ id: 1, type: "number", img: "https://...", prompt: "Hur många ...?", answer: "7" },
+			{ id: 2, type: "letters", img: null, prompt: "Skriv ordet", answer: "ORD" },
+			{ id: 3, type: "pair", prompt: "Para ihop...", pairs: [...], answer: [...] }
+		]
+	}
+];
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Fält som används:
+- `type`: "number" | "letters" | "pair"
+- `prompt`: Text som visas.
+- `img` (valfritt): Bild-URL.
+- `answer`: Rätt svar (string eller array av par).
+- `pairs` (endast för `type: 'pair'`): Lista med `{ word, img }`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Lägga till nytt Escape Game
 
-### `npm run eject`
+Lägg till ett objekt i `escapeGames`:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```js
+export const escapeGames = [
+	// ...befintliga
+	{
+		id: 4,
+		name: "Nytt äventyr",
+		rooms: [
+			{ id: 1, name: "Första rummet", img: "https://...", type: "number", answer: "12" },
+			{ id: 2, name: "Andra rummet", img: "https://...", type: "letters", answer: "ABC" }
+		]
+	}
+];
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Tillåtna `type` i rum: `number`, `letters`, `symbols`, `colors`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Typer / Kontrakt
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Skattjaktsfråga:
+```ts
+{
+	id: number;
+	type: 'number' | 'letters' | 'pair';
+	prompt: string;
+	img?: string;
+	answer: string | Array<{ word: string; img: string }>;
+	pairs?: Array<{ word: string; img: string }>; // endast vid pair
+}
+```
 
-## Learn More
+Escape room:
+```ts
+{
+	id: number;
+	name: string;
+	img: string;
+	type: 'number' | 'letters' | 'symbols' | 'colors';
+	answer: string;
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Escape game:
+```ts
+{
+	id: number;
+	name: string;
+	rooms: Room[];
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Rensa eller bygga ut
 
-### Code Splitting
+Du kan lägga till ett enkelt admin-formulär senare som skriver till state och låter dig testa nya spel utan att manuellt redigera filen.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Deployment
 
-### Analyzing the Bundle Size
+Bygg för produktion:
+```bash
+npm run build
+```
+Innehållet i `build/` kan läggas på GitHub Pages (skript finns i `package.json`).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Licens
 
-### Making a Progressive Web App
+Intern / privat användning.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+Det här README ersätter det generella Create React App-innehållet för att vara mer relevant för projektet.

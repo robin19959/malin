@@ -1,7 +1,7 @@
 import React from "react";
 import "./EscapeMenu.css";
 
-function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack }) {
+function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack, solvedRooms = {} }) {
   const game = escapeGames.find(g => g.id === escapeGameId);
 
   if (!game) {
@@ -25,6 +25,9 @@ function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack }) {
             tabIndex={0}
           >
             <img src={room.img} alt={room.name} className="room-img" />
+            {solvedRooms[game.id]?.has(room.id) && (
+              <div className="room-solved-badge" aria-label="Klar">✓</div>
+            )}
             <div className="room-name">{room.name}</div>
           </div>
         ))}

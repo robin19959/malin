@@ -1,0 +1,102 @@
+/* Gemensam layout för EscapeRoom & Skattjakt */
+:root {
+  --color-primary: #a259ff;
+  --color-primary-dark: #6a1b9a;
+  --color-surface: #ffffff;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 2px 8px rgba(162, 89, 255, 0.10);
+  --shadow-lg: 0 4px 16px rgba(162, 89, 255, 0.18);
+  --gradient-bg: linear-gradient(135deg, #a259ff 0%, #6a1b9a 100%);
+  --btn-gradient: linear-gradient(90deg, #b47cff 0%, #7c43bd 100%);
+  --btn-gradient-hover: linear-gradient(90deg, #7c43bd 0%, #b47cff 100%);
+  --spacing: 16px;
+  --block-vmargin: calc(var(--spacing) * 1.1);
+  --block-padding: 24px 22px;
+}
+
+.game-img-large {
+  width: min(90vw, 400px);
+  height: min(90vw, 400px);
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin: var(--block-vmargin) 0;
+  box-shadow: var(--shadow-lg);
+}
+
+.game-question-box {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--block-padding);
+  margin: var(--block-vmargin) 0;
+  width: min(90vw, 400px);
+  box-sizing: border-box;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.game-input {
+  margin-top: var(--spacing);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-primary);
+  font-size: 1rem;
+  width: 82%;
+  max-width: 240px;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s, border-color .2s;
+}
+
+.game-check-btn {
+  margin-top: calc(var(--spacing) * 1.1);
+  background: var(--btn-gradient);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 26px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.2s, transform 0.15s;
+}
+.game-check-btn:hover { background: var(--btn-gradient-hover); }
+.game-check-btn:active { transform: scale(.96); }
+
+.game-result {
+  margin-top: var(--spacing);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  background: rgba(255,255,255,0.85);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.game-back-btn {
+  align-self: flex-start;
+  margin: calc(var(--spacing) * .5) 0 0 calc(var(--spacing));
+  background: #fff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.2s, color 0.2s, transform .15s;
+  letter-spacing: .4px;
+}
+.game-back-btn:hover { background: var(--color-primary); color: #fff; }
+.game-back-btn:active { transform: scale(.96); }
+.game-back-btn.bottom {
+  align-self: center;
+  margin: var(--block-vmargin) 0 calc(var(--block-vmargin) * 0.5);
+  padding: 12px 30px;
+}

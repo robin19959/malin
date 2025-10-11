@@ -1,21 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Home.css";
+import { escapeGames, skattjakter } from "../data/gamesData";
 
-const skattjakter = Array.from({ length: 15 }, (_, i) => `Skattjakt ${i + 1}`);
+function Home({ setPage, setSelectedSkattjakt, setSelectedEscapeGame }) {
+  // 'skatt' | 'escape' | null
+  const [openDropdown, setOpenDropdown] = useState(null);
+  // Refs för knappar och listor
+  const skattBtnRef = useRef(null);
+  const escapeBtnRef = useRef(null);
+  const skattListRef = useRef(null);
+  const escapeListRef = useRef(null);
 
-const escapeGames = [
-  { id: 1, name: "Rymdäventyret" },
-  { id: 2, name: "Djungeljakten" },
-  { id: 3, name: "Slottets gåta" }
-  // Lägg till fler spel här!
-];
+  const toggleDropdown = (key) => {
+    setOpenDropdown(prev => prev === key ? null : key);
+  };
 
-function Home({ setPage, setSelectedQuiz, setSelectedEscapeGame }) {
-  const [showSkattjakt, setShowSkattjakt] = useState(false);
-  const [showEscapeGames, setShowEscapeGames] = useState(false);
+  // Stäng dropdown om man klickar / touchar utanför aktiv lista + knapp
+  useEffect(() => {
+    const handleGlobal = (e) => {
+      if (!openDropdown) return; // inget öppet
+      if (openDropdown === 'skatt') {
+        if (skattBtnRef.current && skattBtnRef.current.contains(e.target)) return;
+        if (skattListRef.current && skattListRef.current.contains(e.target)) return;
+        setOpenDropdown(null);
+      } else if (openDropdown === 'escape') {
+        if (escapeBtnRef.current && escapeBtnRef.current.contains(e.target)) return;
+        if (escapeListRef.current && escapeListRef.current.contains(e.target)) return;
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handleGlobal);
+    document.addEventListener('touchstart', handleGlobal, { passive: true });
+    return () => {
+      document.removeEventListener('mousedown', handleGlobal);
+      document.removeEventListener('touchstart', handleGlobal);
+    };
+  }, [openDropdown]);
 
   return (
-    <div className="home-container">
+  <div className="home-container">
       <h1>
         Välkommen<br />
         <span className="byline">by morbymalin</span>
@@ -23,23 +46,25 @@ function Home({ setPage, setSelectedQuiz, setSelectedEscapeGame }) {
       <div className="options">
         <div className="dropdown">
           <button
+            ref={skattBtnRef}
             className="home-btn"
-            onClick={() => setShowSkattjakt((v) => !v)}
+            onClick={() => toggleDropdown('skatt')}
+            aria-expanded={openDropdown === 'skatt'}
           >
-            Skattjakter ▼
+            Skattjakter
           </button>
-          {showSkattjakt && (
-            <div className="dropdown-list">
-              {skattjakter.map((name, idx) => (
+          {openDropdown === 'skatt' && (
+            <div ref={skattListRef} className="dropdown-list">
+              {skattjakter.map((jakt) => (
                 <button
-                  key={name}
+                  key={jakt.id}
                   className="dropdown-item"
                   onClick={() => {
-                    setSelectedQuiz(idx + 1);
-                    setPage("quiz");
+                    setSelectedSkattjakt(jakt.id);
+                    setPage("skattjakt");
                   }}
                 >
-                  {name}
+                  {jakt.name}
                 </button>
               ))}
             </div>
@@ -47,13 +72,15 @@ function Home({ setPage, setSelectedQuiz, setSelectedEscapeGame }) {
         </div>
         <div className="dropdown">
           <button
+            ref={escapeBtnRef}
             className="home-btn"
-            onClick={() => setShowEscapeGames((v) => !v)}
+            onClick={() => toggleDropdown('escape')}
+            aria-expanded={openDropdown === 'escape'}
           >
-            Escape Games ▼
+            Escape Games
           </button>
-          {showEscapeGames && (
-            <div className="dropdown-list">
+          {openDropdown === 'escape' && (
+            <div ref={escapeListRef} className="dropdown-list">
               {escapeGames.map((game) => (
                 <button
                   key={game.id}
