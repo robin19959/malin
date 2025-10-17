@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./EscapeRoom.css";
 import "./GameShared.css";
 
@@ -106,32 +106,18 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
             className="game-input"
           />
         )}
-  {room.type === "symbols" && (
-          <div className="dropdown-row">
-            {symbolAnswers.map((val, idx) => (
-              <select
-                key={idx}
-                value={val}
-                onChange={e => handleSymbolChange(idx, e.target.value)}
-                className="mini-dropdown"
-              >
-                <option value="" disabled hidden>Välj</option>
-                {(room.allowedSymbols
-                  ? SYMBOLS.filter(s => room.allowedSymbols.includes(s.value))
-                  : SYMBOLS
-                ).map(sym => (
-                  <option key={sym.value} value={sym.value}>{sym.label}</option>
-                ))}
-              </select>
-            ))}
-          </div>
+        {room.type === "symbols" && (
+          <SymbolPickerRow
+            valueArray={symbolAnswers}
+            onChange={handleSymbolChange}
+            allowedSymbols={room.allowedSymbols}
+          />
         )}
-  {room.type === "colors" && (
+        {room.type === "colors" && (
           <ColorPickerRow
             valueArray={colorAnswers}
             onChange={handleColorChange}
             allowedColors={room.allowedColors}
-            totalSlots={colorSlots}
           />
         )}
         <button
@@ -191,31 +177,107 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
   );
 }
 
-function ColorPickerRow({ valueArray, onChange, allowedColors, totalSlots }) {
+function ColorPickerRow({ valueArray, onChange, allowedColors }) {
+  const [openIndex, setOpenIndex] = useState(null);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutside = (e) => {
+      if (!wrapperRef.current) return;
+      if (!wrapperRef.current.contains(e.target)) {
+        setOpenIndex(null);
+      }
+    };
+    document.addEventListener('pointerdown', handleOutside);
+    return () => document.removeEventListener('pointerdown', handleOutside);
+  }, []);
+
   return (
-    <div className="color-picker-row">
-      {valueArray.map((selected, idx) => (
-        <div key={idx} className="color-picker-cell">
-          <div className="color-picker-dropdown">
-            <div className="color-picker-selected" tabIndex={0}>
-              {selected
-                ? <span className="color-square" style={{ background: COLORS.find(c => c.value === selected)?.hex }} />
-                : <span className="color-placeholder">Välj</span>
-              }
-              <div className="color-picker-options">
-                {(allowedColors ? COLORS.filter(c => allowedColors.includes(c.value)) : COLORS).map(color => (
+    <div className="picker-row" ref={wrapperRef}>
+      {valueArray.map((selected, idx) => {
+        const colors = allowedColors ? COLORS.filter(c => allowedColors.includes(c.value)) : COLORS;
+        return (
+          <div key={idx} className="picker-cell">
+            <button
+              type="button"
+              className={`picker-selected ${openIndex === idx ? 'open' : ''} ${selected ? 'has-value' : ''}`}
+              onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            >
+              {selected ? (
+                <span className="picker-swatch" style={{ background: COLORS.find(c => c.value === selected)?.hex }} />
+              ) : (
+                <span className="picker-placeholder">Välj</span>
+              )}
+            </button>
+            {openIndex === idx && (
+              <div className="picker-options">
+                {colors.map(color => (
                   <div
                     key={color.value}
-                    className="color-square"
-                    style={{ background: color.hex }}
-                    onClick={() => onChange(idx, color.value)}
-                  />
+                    className="picker-option"
+                    onClick={() => { onChange(idx, color.value); setOpenIndex(null); }}
+                  >
+                    <span className="picker-swatch" style={{ background: color.hex }} />
+                  </div>
                 ))}
               </div>
-            </div>
+            )}
           </div>
-        </div>
-      ))}
+        );
+      })}
+    </div>
+  );
+}
+
+function SymbolPickerRow({ valueArray, onChange, allowedSymbols }) {
+  const [openIndex, setOpenIndex] = useState(null);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutside = (e) => {
+      if (!wrapperRef.current) return;
+      if (!wrapperRef.current.contains(e.target)) {
+        setOpenIndex(null);
+      }
+    };
+    document.addEventListener('pointerdown', handleOutside);
+    return () => document.removeEventListener('pointerdown', handleOutside);
+  }, []);
+
+  return (
+    <div className="picker-row" ref={wrapperRef}>
+      {valueArray.map((selected, idx) => {
+        const symbols = allowedSymbols ? SYMBOLS.filter(s => allowedSymbols.includes(s.value)) : SYMBOLS;
+        const selectedSymbolLabel = SYMBOLS.find(s => s.value === selected)?.label;
+        return (
+          <div key={idx} className="picker-cell">
+            <button
+              type="button"
+              className={`picker-selected ${openIndex === idx ? 'open' : ''} ${selected ? 'has-value' : ''}`}
+              onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            >
+              {selected ? (
+                <span className="picker-symbol">{selectedSymbolLabel}</span>
+              ) : (
+                <span className="picker-placeholder">Välj</span>
+              )}
+            </button>
+            {openIndex === idx && (
+              <div className="picker-options">
+                {symbols.map(sym => (
+                  <div
+                    key={sym.value}
+                    className="picker-option"
+                    onClick={() => { onChange(idx, sym.value); setOpenIndex(null); }}
+                  >
+                    <span className="picker-symbol">{sym.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

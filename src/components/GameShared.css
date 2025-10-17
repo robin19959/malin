@@ -14,6 +14,10 @@
   --spacing: 16px;
   --block-vmargin: calc(var(--spacing) * 1.1);
   --block-padding: 24px 22px;
+  /* Safe-area + bottom buffer (gives extra space for fingers / floating UI) */
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  /* Base extra space 60px + any device safe inset */
+  --app-bottom-buffer: calc(150px + var(--safe-area-bottom)); /* increased from 80px to 150px */
 }
 
 .game-img-large {
@@ -99,4 +103,40 @@
   align-self: center;
   margin: var(--block-vmargin) 0 calc(var(--block-vmargin) * 0.5);
   padding: 12px 30px;
+}
+
+/* Utility button variants */
+.btn-primary {
+  background: var(--btn-gradient);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  letter-spacing: .4px;
+  transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: var(--btn-gradient-hover); }
+.btn-primary:active { transform: scale(.96); }
+.btn-outline {
+  background: #fff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  letter-spacing: .4px;
+  transition: background .2s, color .2s, transform .15s;
+}
+.btn-outline:hover { background: var(--color-primary); color: #fff; }
+.btn-outline:active { transform: scale(.96); }
+.btn-outline:focus-visible, .btn-primary:focus-visible, .game-back-btn:focus-visible, .game-check-btn:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 3px;
 }

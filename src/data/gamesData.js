@@ -24,10 +24,13 @@ export const skattjakter = [
         id: 3,
         type: "pair",
         prompt: "Para ihop bilder med rätt ord!",
+          img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
         pairs: [
-          { word: "Sol", img: "/pairs/sun.svg" },
-          { word: "Träd", img: "/pairs/tree.svg" },
+          { word: "Sol", img: "/pairs/tree.svg" },
+          { word: "Träd", img: "/pairs/sun.svg" },
           { word: "Bok", img: "/pairs/book.svg" }
+
+
         ],
         answer: [
           { word: "Sol", img: "/pairs/sun.svg" },
@@ -59,6 +62,7 @@ export const skattjakter = [
         id: 3,
         type: "pair",
         prompt: "Para ihop bilder med rätt ord!",
+          img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
         pairs: [
           { word: "Blomma", img: "/pairs/flower.svg" },
           { word: "Träd", img: "/pairs/tree.svg" },
@@ -94,6 +98,7 @@ export const skattjakter = [
         id: 3,
         type: "pair",
         prompt: "Para ihop bilder med rätt ord!",
+          img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
         pairs: [
           { word: "Kyrka", img: "/pairs/church.svg" },
           { word: "Slott", img: "/pairs/castle.svg" },

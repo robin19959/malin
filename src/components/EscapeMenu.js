@@ -1,5 +1,6 @@
 import React from "react";
 import "./EscapeMenu.css";
+import "./GameShared.css"; // ensure shared design tokens are loaded
 
 function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack, solvedRooms = {} }) {
   const game = escapeGames.find(g => g.id === escapeGameId);
@@ -23,6 +24,14 @@ function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack, solvedRooms =
             className="room-card"
             onClick={() => goToRoom(room.id)}
             tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                goToRoom(room.id);
+              }
+            }}
+            role="button"
+            aria-label={`Öppna rum ${room.name}`}
           >
             <img src={room.img} alt={room.name} className="room-img" />
             {solvedRooms[game.id]?.has(room.id) && (
