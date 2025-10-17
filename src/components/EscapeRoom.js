@@ -53,7 +53,8 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
   if (!room) {
     return (
       <div className="room-container">
-        <button className="back-btn" onClick={goBack}>Tillbaka</button>
+      <button className="game-back-btn bottom" onClick={goBack}>Tillbaka</button>
+      <button className="game-back-btn bottom" style={{marginTop:12}} onClick={()=>window.location.reload()}>Till startsidan</button>
         <h2>Rummet hittades inte</h2>
       </div>
     );
@@ -172,7 +173,7 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
         >Kolla svar</button>
         {result && <div className="game-result">{result}</div>}
       </div>
-      <button className="game-back-btn bottom" onClick={goBack}>Tillbaka</button>
+        <button className="game-back-btn bottom" onClick={goBack}>Tillbaka</button>
     </div>
   );
 }

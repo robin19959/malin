@@ -69,8 +69,9 @@ h2 {
 }
 
 .back-btn {
-  align-self: flex-start;
-  margin: calc(var(--spacing) * .5) 0 0 calc(var(--spacing));
+  align-self: center;
+    margin: var(--block-vmargin) 0 calc(var(--block-vmargin) * 0.5);
+    padding: 12px 30px;
   background: #fff;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);

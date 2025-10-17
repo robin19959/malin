@@ -128,6 +128,8 @@ function Skattjakt({ questions = [], skattjaktName = "", goHome }) {
   };
 
   if (step >= questions.length) {
+    // Scrolla automatiskt till toppen när grattis-sidan visas
+    window.scrollTo(0, 0);
     return (
       <div className="skattjakt-container">
         <div className="finish-box">
