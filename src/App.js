@@ -61,6 +61,9 @@ function App() {
           skattjaktName={
             skattjakter.find(jakt => jakt.id === selectedSkattjakt)?.name || ""
           }
+          introImg={
+            skattjakter.find(jakt => jakt.id === selectedSkattjakt)?.introImg || ""
+          }
           goHome={() => setPage("home")}
         />
       )}
