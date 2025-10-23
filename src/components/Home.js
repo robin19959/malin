@@ -41,7 +41,7 @@ function Home({ setPage, setSelectedSkattjakt, setSelectedEscapeGame }) {
   <div className="home-container">
       <h1>
         Välkommen<br />
-        <span className="byline">by morbymalin</span>
+        <span className="byline">MoreByMalin</span>
       </h1>
       <div className="options">
         <div className="dropdown">
