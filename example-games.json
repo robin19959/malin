@@ -1,3 +1,11 @@
+// git add .
+// git commit -m "ready for GitHub Pages deploy"
+// git push
+
+// npm run deploy
+
+
+
 {
   "_instructions": {
     "general": "Fyll i egna spel här. Behåll struktur och undvik att ta bort nycklar. Bilder läggs i /skattjakt (ca 800x800 JPG/WEBP), /escape (ca 800x800 JPG/WEBP) och /pairs (ca 200x200 SVG/PNG). Filnamn utan mellanslag och å/ä/ö.",
