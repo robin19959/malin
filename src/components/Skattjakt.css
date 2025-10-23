@@ -9,6 +9,15 @@
   box-sizing: border-box;
 }
 
+.skattjakt-container h2 {
+  padding: 6px 12px;
+  box-sizing: border-box;
+  max-width: 96vw;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+}
+
 /* Pair layout */
 .pair-layout {
   display: flex;

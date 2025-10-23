@@ -16,6 +16,12 @@ h2 {
   font-family: 'Segoe UI', sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  max-width: 96vw;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .rooms-grid {
@@ -30,9 +36,9 @@ h2 {
 @media (max-width: 600px) {
   .rooms-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 6px;
     width: 98vw;
-    max-width: 98vw;
+    max-width: 94vw;
   }
   /* Behåll kvadratisk proportion via aspect-ratio istället för fast höjd */
   .room-img { aspect-ratio: 1 / 1; }
@@ -120,4 +126,48 @@ h2 {
 .back-btn:hover {
   background: #a259ff;
   color: #fff;
+}
+
+/* Win overlay */
+.win-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 2000;
+  animation: fadeIn 220ms ease-out;
+}
+.win-box {
+  background: linear-gradient(180deg,#fff,#f6f0ff);
+  padding: 28px 22px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(23,12,68,0.45);
+  max-width: 92vw;
+  width: 420px;
+}
+.win-box h3 {
+  margin: 0 0 8px 0;
+  color: #4a1a9a;
+}
+.win-text {
+  color: #222;
+  margin: 8px 0 16px 0;
+  font-size: 1rem;
+}
+.game-check-btn {
+  background: #6b3df8;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }

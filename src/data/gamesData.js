@@ -295,13 +295,14 @@ export const escapeGames = [
   {
     id: 4,
     name: "LÄGENHETEN",
+    win: "Grattis ni har flytt från lägenheten!",
     rooms: [
-  { id: 1, name: "Toalettdörren", img: "/escape/toalettdorren.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "triangle", "rectangle"], answerSequence: ["heart", "circle", "rectangle", "triangle"] },
-  { id: 2, name: "Soffan", img: "/escape/soffan.jpg", type: "number", answer: "104271" },
-  { id: 3, name: "Sängen", img: "/escape/sangen.jpg", type: "letters", answer: "GFGH" },
-  { id: 4, name: "Köket", img: "/escape/koket.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "triangle", "cloud"], answerSequence: ["circle", "star", "heart", "cloud", "heart"] },
-  { id: 5, name: "Bokhyllan", img: "/escape/bokhyllan.jpg", type: "symbols", allowedSymbols: ["circle", "square", "cloud", "heart", "triangle"], answerSequence: ["heart", "circle", "square", "cloud"] },
-  { id: 6, name: "Garderoben", img: "/escape/garderoben.jpg", type: "number", answer: "90090" },
+  { id: 1, name: "Toalettdörren", img: "/escape/toalettdorren.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "triangle", "rectangle"], answerSequence: ["heart", "circle", "rectangle", "triangle"], instruction: "Bra jobbat2!" },
+  { id: 2, name: "Soffan", img: "/escape/soffan.jpg", type: "number", answer: "104271", instruction: "Bra jobbat!" },
+  { id: 3, name: "Sängen", img: "/escape/sangen.jpg", type: "letters", answer: "GFGH", instruction: "Bra jobbat!" },
+  { id: 4, name: "Köket", img: "/escape/koket.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "triangle", "cloud"], answerSequence: ["circle", "star", "heart", "cloud", "heart"], instruction: "Bra jobbat!" },
+  { id: 5, name: "Bokhyllan", img: "/escape/bokhyllan.jpg", type: "symbols", allowedSymbols: ["circle", "square", "cloud", "heart", "triangle"], answerSequence: ["heart", "circle", "square", "cloud"], instruction: "Bra jobbat!" },
+  { id: 6, name: "Garderoben", img: "/escape/garderoben.jpg", type: "number", answer: "90090", instruction: "Bra jobbat!" },
       { id: 7, name: "TV:n", img: "/escape/tvn.jpg", type: "colors", allowedColors: ["yellow", "green", "orange", "red", "pink", "purple"], answerSequence: ["pink", "green", "orange", "purple"] },
       { id: 8, name: "Skrivbordet", img: "/escape/skrivbordet.jpg", type: "number", answer: "8431" },
       { id: 9, name: "Fönstret", img: "/escape/fonstret.jpg", type: "colors", allowedColors: ["yellow", "brown", "blue", "red", "pink", "purple"], answerSequence: ["blue", "yellow", "red", "pink", "brown"] },
@@ -337,14 +338,10 @@ export const escapeGames = [
   {
     id: 3,
     name: "Slottets gåta",
+    win: "Grattis ni har flytt från Slottest gåta!",
     rooms: [
-      { id: 1, name: "Biblioteket", img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80", type: "letters", answer: "BOK" },
-      { id: 2, name: "Slottssalen", img: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80", type: "symbols", answer: "☀" },
-      { id: 7, name: "Vaktkoden", img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80", type: "symbols", allowedSymbols: ["circle", "square", "star"], answerSequence: ["circle", "square", "star"] },
-      { id: 3, name: "Tornet", img: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80", type: "number", answer: "5" },
-      { id: 4, name: "Fängelsehålan", img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80", type: "colors", answer: "purple" },
-      { id: 5, name: "Kapellet", img: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80", type: "letters", answer: "KORS" },
-      { id: 6, name: "Trädgården", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80", type: "symbols", answer: "♣" }
+      { id: 1, name: "Biblioteket", img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80", type: "letters", answer: "BOK" }
+
     ]
   }
 ];

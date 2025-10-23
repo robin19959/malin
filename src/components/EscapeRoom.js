@@ -45,6 +45,7 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
   useEffect(() => {
     setResult(null);
     setAnswer("");
+    // instruction comes from gamesData (room.instruction) only
     if (room?.type === 'symbols') {
       const newSlots = room?.answerSequence?.length || (room?.answer ? 1 : 4);
       setSymbolAnswers(Array(newSlots).fill(""));
@@ -177,6 +178,15 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
           }}
         >Kolla svar</button>
         {result && <div className="game-result">{result}</div>}
+        {/* Show instruction from gamesData when solved (no in-app editing) */}
+        {result === 'Rätt!' && room.instruction && (
+          <div style={{ marginTop: 12, width: '100%', maxWidth: 520 }}>
+            <div className="instruction-box" style={{ background: 'rgba(255,255,255,0.95)', padding: 12, borderRadius: 8, boxShadow: 'var(--shadow-sm)' }}>
+              <strong>Instruktion:</strong>
+              <div style={{ marginTop: 6, whiteSpace: 'pre-wrap' }}>{room.instruction}</div>
+            </div>
+          </div>
+        )}
       </div>
         <button className="game-back-btn bottom" onClick={goBack}>Tillbaka</button>
     </div>

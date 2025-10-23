@@ -5,6 +5,8 @@ import resolveImg from "../utils/resolveImg";
 
 function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack, solvedRooms = {} }) {
   const game = escapeGames.find(g => g.id === escapeGameId);
+  const solvedSet = solvedRooms[escapeGameId] ? new Set(Array.from(solvedRooms[escapeGameId])) : new Set();
+  const allSolved = game ? game.rooms.every(r => solvedSet.has(r.id)) : false;
 
   if (!game) {
     return (
@@ -35,7 +37,7 @@ function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack, solvedRooms =
             aria-label={`Öppna rum ${room.name}`}
           >
             <img src={resolveImg(room.img)} alt={room.name} className="room-img" onError={(e)=>{e.target.style.display='none'}} />
-            {solvedRooms[game.id]?.has(room.id) && (
+            {solvedSet.has(room.id) && (
               <div className="room-solved-badge" aria-label="Klar">✓</div>
             )}
             <div className="room-name">{room.name}</div>
@@ -43,6 +45,15 @@ function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack, solvedRooms =
         ))}
       </div>
       <button className="back-btn" onClick={goBack}>Tillbaka</button>
+      {allSolved && game.win && (
+        <div className="win-overlay" role="dialog" aria-modal="true">
+          <div className="win-box">
+            <h3>Grattis!</h3>
+            <p className="win-text">{game.win}</p>
+            <button className="game-check-btn" onClick={() => { window.location.reload(); }}>OK</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
