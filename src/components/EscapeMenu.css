@@ -83,7 +83,8 @@ h2 {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
-  filter: brightness(0.7);
+  /* removed darkening filter so thumbnails show natural brightness */
+  filter: none;
 }
 
 .room-name {
@@ -92,7 +93,8 @@ h2 {
   left: 0;
   width: 100%;
   padding: 6px 0;
-  background: linear-gradient(0deg, rgba(106,27,154,0.85) 80%, transparent 100%);
+  /* soften gradient so it doesn't darken the whole image */
+  background: linear-gradient(0deg, rgba(106,27,154,0.6) 80%, transparent 100%);
   color: #fff;
   font-size: 0.95rem;
   font-weight: 600;

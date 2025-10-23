@@ -5,111 +5,111 @@ export const skattjakter = [
 
 
   {
-  id: 5,
-  name: "SPÖKFESTEN - YNGRE BARN",
-  introImg: "/skattjakt/spokfesten1.jpg",
-  questions: [
-    {
-      id: 1,
-      type: "letters",
-      img: "/skattjakt/vitaspoket.jpg",
-      prompt: "Vad har det vita spöket tagit med sig?",
-      answer: "BOLLAR"
-    },
-    {
-      id: 2,
-      type: "letters",
-      img: "/skattjakt/rodaspoket.jpg",
-      prompt: "Vad har det röda spöket tagit med sig?",
-      answer: "PUMPOR"
-    },
-    {
-      id: 3,
-      type: "letters",
-      img: "/skattjakt/orangeaspoket.jpg",
-      prompt: "Vad har det orangea spöket tagit med sig?",
-      answer: "GODIS"
-    },
-    {
-      id: 4,
-      type: "letters",
-      img: "/skattjakt/gronaspoket.jpg",
-      prompt: "Vad har det gröna spöket tagit med sig?",
-      answer: "HÄXHATT"
-    },
-    {
-      id: 5,
-      type: "letters",
-      img: "/skattjakt/rosaspoket.jpg",
-      prompt: "Vad har det rosa spöket tagit med sig?",
-      answer: "KVASTAR"
-    },
-    {
-      id: 6,
-      type: "letters",
-      img: "/skattjakt/blaaspoket.jpg",
-      prompt: "Vad har det blåa spöket tagit med sig?",
-      answer: "FLADDERMÖSS"
-    }
-  ]
-},
+    id: 5,
+    name: "SPÖKFESTEN - YNGRE BARN",
+    introImg: "/skattjakt/spokfesten1.jpg",
+    questions: [
+      {
+        id: 1,
+        type: "letters",
+        img: "/skattjakt/vitaspoket.jpg",
+        prompt: "Vad har det vita spöket tagit med sig?",
+        answer: "BOLLAR"
+      },
+      {
+        id: 2,
+        type: "letters",
+        img: "/skattjakt/rodaspoket.jpg",
+        prompt: "Vad har det röda spöket tagit med sig?",
+        answer: "PUMPOR"
+      },
+      {
+        id: 3,
+        type: "letters",
+        img: "/skattjakt/orangeaspoket.jpg",
+        prompt: "Vad har det orangea spöket tagit med sig?",
+        answer: "GODIS"
+      },
+      {
+        id: 4,
+        type: "letters",
+        img: "/skattjakt/gronaspoket.jpg",
+        prompt: "Vad har det gröna spöket tagit med sig?",
+        answer: "HÄXHATT"
+      },
+      {
+        id: 5,
+        type: "letters",
+        img: "/skattjakt/rosaspoket.jpg",
+        prompt: "Vad har det rosa spöket tagit med sig?",
+        answer: "KVASTAR"
+      },
+      {
+        id: 6,
+        type: "letters",
+        img: "/skattjakt/blaaspoket.jpg",
+        prompt: "Vad har det blåa spöket tagit med sig?",
+        answer: "FLADDERMÖSS"
+      }
+    ]
+  },
 
 
 
 
 
-{
-  id: 6,
-  name: "SPÖKFESTEN - ÄLDRE BARN",
-  introImg: "/skattjakt/spokfesten2.jpg",
-  questions: [
-    {
-      id: 1,
-      type: "letters",
-      img: "/skattjakt/vitaspoket2.jpg",
-      prompt: "Hjälp det vita spöket med gåtan och ange koden.",
-      answer: "GSUT"
-    },
-    {
-      id: 2,
-      type: "number",
-      img: "/skattjakt/rodaspoket2.jpg",
-      prompt: "Hjälp det röda spöket med gåtan och ange koden.",
-      answer: "10010"
-    },
-    {
-      id: 3,
-      type: "number",
-      img: "/skattjakt/orangeaspoket2.jpg",
-      prompt: "Hjälp det orangea spöket med gåtan och ange koden.",
-      answer: "1457"
-    },
-    {
-      id: 4,
-      type: "letters",
-      img: "/skattjakt/gronaspoket2.jpg",
-      prompt: "Hjälp det gröna spöket med gåtan och ange koden.",
-      answer: "HEXAGON"
-    },
-    {
-      id: 5,
-      type: "number",
-      img: "/skattjakt/rosaspoket2.jpg",
-      prompt: "Hjälp det rosa spöket med gåtan och ange koden.",
-      answer: "35412"
-    },
-    {
-      id: 6,
-      type: "letters",
-      img: "/skattjakt/blaaspoket2.jpg",
-      prompt: "Hjälp det blåa spöket med gåtan och ange koden.",
-      answer: "LADW"
-    }
-  ]
-},
+  {
+    id: 6,
+    name: "SPÖKFESTEN - ÄLDRE BARN",
+    introImg: "/skattjakt/spokfesten2.jpg",
+    questions: [
+      {
+        id: 1,
+        type: "letters",
+        img: "/skattjakt/vitaspoket2.jpg",
+        prompt: "Hjälp det vita spöket med gåtan och ange koden.",
+        answer: "GSUT"
+      },
+      {
+        id: 2,
+        type: "number",
+        img: "/skattjakt/rodaspoket2.jpg",
+        prompt: "Hjälp det röda spöket med gåtan och ange koden.",
+        answer: "10010"
+      },
+      {
+        id: 3,
+        type: "number",
+        img: "/skattjakt/orangeaspoket2.jpg",
+        prompt: "Hjälp det orangea spöket med gåtan och ange koden.",
+        answer: "1457"
+      },
+      {
+        id: 4,
+        type: "letters",
+        img: "/skattjakt/gronaspoket2.jpg",
+        prompt: "Hjälp det gröna spöket med gåtan och ange koden.",
+        answer: "HEXAGON"
+      },
+      {
+        id: 5,
+        type: "number",
+        img: "/skattjakt/rosaspoket2.jpg",
+        prompt: "Hjälp det rosa spöket med gåtan och ange koden.",
+        answer: "35412"
+      },
+      {
+        id: 6,
+        type: "letters",
+        img: "/skattjakt/blaaspoket2.jpg",
+        prompt: "Hjälp det blåa spöket med gåtan och ange koden.",
+        answer: "LADW"
+      }
+    ]
+  },
 
 
-  
+
 
 
 
@@ -134,7 +134,7 @@ export const skattjakter = [
     introImg: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80",
     questions: [
 
-  
+
 
 
       {
@@ -291,6 +291,23 @@ export const skattjakter = [
 ];
 
 export const escapeGames = [
+
+  {
+    id: 4,
+    name: "LÄGENHETEN",
+    rooms: [
+  { id: 1, name: "Toalettdörren", img: "/escape/toalettdorren.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "triangle", "rectangle"], answerSequence: ["heart", "circle", "rectangle", "triangle"] },
+  { id: 2, name: "Soffan", img: "/escape/soffan.jpg", type: "number", answer: "104271" },
+  { id: 3, name: "Sängen", img: "/escape/sangen.jpg", type: "letters", answer: "GFGH" },
+  { id: 4, name: "Köket", img: "/escape/koket.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "triangle", "cloud"], answerSequence: ["circle", "star", "heart", "cloud", "heart"] },
+  { id: 5, name: "Bokhyllan", img: "/escape/bokhyllan.jpg", type: "symbols", allowedSymbols: ["circle", "square", "cloud", "heart", "triangle"], answerSequence: ["heart", "circle", "square", "cloud"] },
+  { id: 6, name: "Garderoben", img: "/escape/garderoben.jpg", type: "number", answer: "90090" },
+      { id: 7, name: "TV:n", img: "/escape/tvn.jpg", type: "colors", allowedColors: ["yellow", "green", "orange", "red", "pink", "purple"], answerSequence: ["pink", "green", "orange", "purple"] },
+      { id: 8, name: "Skrivbordet", img: "/escape/skrivbordet.jpg", type: "number", answer: "8431" },
+      { id: 9, name: "Fönstret", img: "/escape/fonstret.jpg", type: "colors", allowedColors: ["yellow", "brown", "blue", "red", "pink", "purple"], answerSequence: ["blue", "yellow", "red", "pink", "brown"] },
+      { id: 10, name: "Halldörren", img: "/escape/halldorren.jpg", type: "letters", answer: "DENOFI" }
+    ]
+  },
   {
     id: 1,
     name: "Rymdäventyret",

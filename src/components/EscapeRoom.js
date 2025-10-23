@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./EscapeRoom.css";
 import "./GameShared.css";
+import resolveImg from "../utils/resolveImg";
 
 const SYMBOLS = [
   { value: "circle", label: "⚫" }, // svart cirkel
   { value: "square", label: "⬛" },
   { value: "star", label: "★" },
   { value: "heart", label: "♥" },
-  { value: "triangle", label: "▲" }
+  { value: "triangle", label: "▲" },
+  { value: "rectangle", label: "▭" }, // lagt till
+  { value: "cloud", label: "☁" } 
 ];
 const COLORS = [
   { value: "yellow", hex: "#ffe600" },
@@ -15,7 +18,9 @@ const COLORS = [
   { value: "blue",   hex: "#3498db" },
   { value: "red",    hex: "#e74c3c" },
   { value: "pink",   hex: "#ff69b4" },
-  { value: "purple", hex: "#a259ff" }
+  { value: "purple", hex: "#a259ff" },
+  { value: "orange", hex: "#ff9500" }, // lagt till
+  { value: "brown",  hex: "#8b5e3c" } 
 ];
 
 // Du kan importera escapeGames från EscapeMenu.js eller ha samma struktur i App.js och skicka in som prop
@@ -85,8 +90,8 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
 
   return (
     <div className="room-container">
-      <h2>{room.name}</h2>
-      <img src={room.img} alt={room.name} className="game-img-large" />
+  <h2>{room.name}</h2>
+  <img src={resolveImg(room.img)} alt={room.name} className="game-img-large" onError={(e)=>{e.target.style.display='none'}} />
       <div className="game-question-box">
         <p>Svara på frågan (på papper):</p>
   {room.type === "number" && (

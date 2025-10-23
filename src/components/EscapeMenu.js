@@ -1,6 +1,7 @@
 import React from "react";
 import "./EscapeMenu.css";
 import "./GameShared.css"; // ensure shared design tokens are loaded
+import resolveImg from "../utils/resolveImg";
 
 function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack, solvedRooms = {} }) {
   const game = escapeGames.find(g => g.id === escapeGameId);
@@ -33,7 +34,7 @@ function EscapeMenu({ escapeGames, escapeGameId, goToRoom, goBack, solvedRooms =
             role="button"
             aria-label={`Öppna rum ${room.name}`}
           >
-            <img src={room.img} alt={room.name} className="room-img" />
+            <img src={resolveImg(room.img)} alt={room.name} className="room-img" onError={(e)=>{e.target.style.display='none'}} />
             {solvedRooms[game.id]?.has(room.id) && (
               <div className="room-solved-badge" aria-label="Klar">✓</div>
             )}
