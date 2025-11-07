@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/malin/static/css/main.cc5bbc14.css",
-    "main.js": "/malin/static/js/main.63fa213f.js",
+    "main.js": "/malin/static/js/main.3e9722c4.js",
     "index.html": "/malin/index.html",
     "main.cc5bbc14.css.map": "/malin/static/css/main.cc5bbc14.css.map",
-    "main.63fa213f.js.map": "/malin/static/js/main.63fa213f.js.map"
+    "main.3e9722c4.js.map": "/malin/static/js/main.3e9722c4.js.map"
   },
   "entrypoints": [
     "static/css/main.cc5bbc14.css",
-    "static/js/main.63fa213f.js"
+    "static/js/main.3e9722c4.js"
   ]
 }
