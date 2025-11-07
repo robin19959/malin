@@ -12,6 +12,9 @@ function Skattjakt({ questions = [], skattjaktName = "", goHome, introImg }) {
   const [selectedImg, setSelectedImg] = useState(null);
   const [selectedWord, setSelectedWord] = useState(null);
   const [pairs, setPairs] = useState([]);
+  const [wrongAttempts, setWrongAttempts] = useState(0); // antal fel på aktuell fråga
+  const [showHintBtn, setShowHintBtn] = useState(false); // visa ledtrådsknapp?
+  const [hintVisible, setHintVisible] = useState(false); // popup synlig?
 
 
   // Säker väg till bilder i public även vid subkataloger
@@ -145,9 +148,16 @@ function Skattjakt({ questions = [], skattjaktName = "", goHome, introImg }) {
     if (isCorrect) {
       setResult("Rätt!");
       setConfirmedCorrect(true);
+      // Återställ hint-state vid rätt svar
+      setWrongAttempts(0);
+      setShowHintBtn(false);
+      setHintVisible(false);
     } else {
       setResult("Fel, försök igen!");
       setConfirmedCorrect(false);
+      const nextWrong = wrongAttempts + 1;
+      setWrongAttempts(nextWrong);
+      if (nextWrong >= 3) setShowHintBtn(true);
     }
   };
 
@@ -160,6 +170,9 @@ function Skattjakt({ questions = [], skattjaktName = "", goHome, introImg }) {
     setPairs([]);
     setSelectedImg(null);
     setSelectedWord(null);
+    setWrongAttempts(0);
+    setShowHintBtn(false);
+    setHintVisible(false);
   };
 
   const handleBackOne = () => {
@@ -171,6 +184,9 @@ function Skattjakt({ questions = [], skattjaktName = "", goHome, introImg }) {
     setPairs([]);
     setSelectedImg(null);
     setSelectedWord(null);
+    setWrongAttempts(0);
+    setShowHintBtn(false);
+    setHintVisible(false);
   };
 
   // Gå tillbaka från grattissidan till sista frågan
@@ -185,6 +201,9 @@ function Skattjakt({ questions = [], skattjaktName = "", goHome, introImg }) {
     setPairs([]);
     setSelectedImg(null);
     setSelectedWord(null);
+    setWrongAttempts(0);
+    setShowHintBtn(false);
+    setHintVisible(false);
   };
 
   if (step >= questions.length) {
@@ -225,6 +244,14 @@ function Skattjakt({ questions = [], skattjaktName = "", goHome, introImg }) {
               <button className="game-check-btn" onClick={handleCheck}>Kolla svar</button>
             )}
             {result && <div className="game-result">{result}</div>}
+            {showHintBtn && !confirmedCorrect && (
+              <button type="button" className="hint-btn" onClick={() => setHintVisible(v => !v)}>
+                {hintVisible ? "Dölj ledtråd" : "Visa ledtråd"}
+              </button>
+            )}
+            {hintVisible && showHintBtn && !confirmedCorrect && current.hint && (
+              <div className="hint-popup"><strong>Ledtråd:</strong> {current.hint}</div>
+            )}
             {confirmedCorrect && (
               <button className="game-check-btn" onClick={handleNext}>Nästa</button>
             )}
@@ -290,6 +317,14 @@ function Skattjakt({ questions = [], skattjaktName = "", goHome, introImg }) {
               <button className="game-check-btn" onClick={checkPairs}>Kolla svar</button>
             )}
             {result && <div className="game-result">{result}</div>}
+            {showHintBtn && !confirmedCorrect && (
+              <button type="button" className="hint-btn" onClick={() => setHintVisible(v => !v)}>
+                {hintVisible ? "Dölj ledtråd" : "Visa ledtråd"}
+              </button>
+            )}
+            {hintVisible && showHintBtn && !confirmedCorrect && current.hint && (
+              <div className="hint-popup"><strong>Ledtråd:</strong> {current.hint}</div>
+            )}
             {confirmedCorrect && (
               <button className="game-check-btn" onClick={handleNext}>Nästa</button>
             )}
@@ -356,6 +391,14 @@ function Skattjakt({ questions = [], skattjaktName = "", goHome, introImg }) {
               <button className="game-check-btn" onClick={checkPairsImg}>Kolla svar</button>
             )}
             {result && <div className="game-result">{result}</div>}
+            {showHintBtn && !confirmedCorrect && (
+              <button type="button" className="hint-btn" onClick={() => setHintVisible(v => !v)}>
+                {hintVisible ? "Dölj ledtråd" : "Visa ledtråd"}
+              </button>
+            )}
+            {hintVisible && showHintBtn && !confirmedCorrect && current.hint && (
+              <div className="hint-popup"><strong>Ledtråd:</strong> {current.hint}</div>
+            )}
             {confirmedCorrect && (
               <button className="game-check-btn" onClick={handleNext}>Nästa</button>
             )}
