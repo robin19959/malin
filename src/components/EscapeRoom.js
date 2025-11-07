@@ -10,7 +10,9 @@ const SYMBOLS = [
   { value: "heart", label: "♥" },
   { value: "triangle", label: "▲" },
   { value: "rectangle", label: "▭" }, // lagt till
-  { value: "cloud", label: "☁" } 
+  { value: "cloud", label: "☁" },
+  { value: "four leaf clover", label: "☘" }, // fyrklöver
+  { value: "hexagon", label: "⬡" } // hexagon form
 ];
 const COLORS = [
   { value: "yellow", hex: "#ffe600" },

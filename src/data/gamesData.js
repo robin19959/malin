@@ -129,58 +129,6 @@ export const skattjakter = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// {
-//   id: 1,
-//   name: "Stadens mysterium",
-//   introImg: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80",
-//   questions: [
-//     {
-//       id: 1,
-//       type: "number",
-//       img: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80",
-//       prompt: "Hur många nycklar ser du på bilden?",
-//       answer: ["3", "tre", "03"]
-//     },
-//     {
-//       id: 2,
-//       type: "letters",
-//       img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80",
-//       prompt: "Skriv det hemliga ordet (hint: BOK)",
-//       answer: "BOK"
-//     },
-//     {
-//       id: 3,
-//       type: "pair",
-//       prompt: "Para ihop bilder med rätt ord!",
-//       img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
-//       pairs: [
-//         { word: "Sol", img: "/pairs/tree.svg" },
-//         { word: "Träd", img: "/pairs/sun.svg" },
-//         { word: "Bok", img: "/pairs/book.svg" }
-
-
-//       ],
-//       answer: [
-//         { word: "Sol", img: "/pairs/sun.svg" },
-//         { word: "Träd", img: "/pairs/tree.svg" },
-//         { word: "Bok", img: "/pairs/book.svg" }
-//       ]
-//     }
-//   ]
-// },
-
-
 export const escapeGames = [
 
   // Advent Escape Games
@@ -220,9 +168,6 @@ export const escapeGames = [
   },
 
 
-
-
-
   {
     id: 5,
     name: "LÄGENHETEN",
@@ -240,6 +185,75 @@ export const escapeGames = [
       { id: 10, name: "Halldörren", img: "/escape/halldorren.jpg", type: "letters", answer: "DENOFI" }
     ]
   },
+
+  {
+  id: 6,
+  name: "Advent hos familjen Juliusson - Första advent",
+  category: "advent",
+  win: "Härligt! Nu kan vi börja julpynta!",
+  rooms: [
+    { id: 1, name: "Dörren till vinden", img: "/escape/vindsdorren1.jpg", type: "number", answer: "43785", instruction: "Bra jobbat! Ta ledtråd 2" },
+    { id: 2, name: "Byrån", img: "/escape/byran.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "triangle", "rectangle"], answerSequence: ["heart", "square", "triangle", "circle"], instruction: "Bra jobbat! Ta ledtråd 5" },
+    { id: 3, name: "Bruna lådan", img: "/escape/brunaladan.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "flower", "rectangle"], answerSequence: ["triangle", "square", "star", "circle", "heart"], instruction: "Bra jobbat! Ta ledtråd 9" },
+    { id: 4, name: "Dörren ut från vinden", img: "/escape/vindsdorren2.jpg", type: "colors", allowedColors: ["brown", "black", "orange", "red", "yellow", "blue"], answerSequence: ["blue", "brown", "orange", "red", "black"] },
+    { id: 5, name: "Julkartong", img: "/escape/julkartong1.jpg", type: "letters", answer: "EADB", instruction: "Bra jobbat! Ta ledtråd 3" },
+    { id: 6, name: "Kistan", img: "/escape/kistan.jpg", type: "colors", allowedColors: ["green", "brown", "orange", "red", "yellow", "blue"], answerSequence: ["green", "blue", "yellow", "brown"], instruction: "Bra jobbat! Ta ledtråd 4" },
+    { id: 7, name: "Julkartong", img: "/escape/julkartong2.jpg", type: "letters", answer: "PMHDV", instruction: "Bra jobbat! Ta ledtråd 7" },
+    { id: 8, name: "Jullådor", img: "/escape/jullador.jpg", type: "number", answer: "2154", instruction: "Bra jobbat! Ta ledtråd 8" },
+    { id: 9, name: "Gammalt skåp", img: "/escape/gammaltskap.jpg", type: "colors", allowedColors: ["black", "grey", "white", "brown", "red"], answerSequence: ["white", "black", "red", "grey", "white", "brown", "red"], instruction: "Bra jobbat! Ta ledtråd 6" }
+  ]
+},
+{
+  id: 7,
+  name: "Advent hos familjen Juliusson - Andra advent",
+  category: "advent",
+  win: "Vad skönt! Nu är julklapparna inhandlade och vi kan åka hem och slå in dem.",
+  rooms: [
+    { id: 1, name: "Köpcentrum", img: "/escape/kopcentrum.jpg", type: "letters", answer: "START", instruction: "Bra jobbat! Ta ledtråd 2" },
+    { id: 2, name: "Skoaffären", img: "/escape/skoaffar.jpg", type: "symbols", allowedSymbols: ["circle", "four leaf clover", "star", "heart", "triangle", "rectangle"], answerSequence: ["star", "cross", "heart", "four leaf clover"], instruction: "Bra jobbat! Ta ledtråd 4" },
+    { id: 3, name: "Leksaksaffären", img: "/escape/leksaksaffar.jpg", type: "symbols", allowedSymbols: ["circle", "square", "hexagon", "heart", "triangle", "diamond"], answerSequence: ["square", "diamond", "circle", "triangle", "hexagon"], instruction: "Bra jobbat! Ta ledtråd 8" },
+    { id: 4, name: "Klädaffären", img: "/escape/kladaffar.jpg", type: "colors", allowedColors: ["brown", "green", "pink", "red", "yellow", "blue"], answerSequence: ["blue", "pink", "brown", "yellow", "red", "green"] },
+    { id: 5, name: "Smyckesaffären", img: "/escape/smyckesaffar.jpg", type: "letters", answer: "INGÅNG", instruction: "Bra jobbat! Ta ledtråd 6" },
+    { id: 6, name: "Parkeringen", img: "/escape/parkering.jpg", type: "colors", allowedColors: ["green", "brown", "pink", "red", "yellow", "blue"], answerSequence: ["blue", "pink", "green", "yellow"] },
+    { id: 7, name: "Pysselaffären", img: "/escape/pysselaffar.jpg", type: "letters", answer: "NRTR", instruction: "Bra jobbat! Ta ledtråd 9" },
+    { id: 8, name: "Bokhandeln", img: "/escape/bokhandel.jpg", type: "number", answer: "798", instruction: "Bra jobbat! Ta ledtråd 7" },
+    { id: 9, name: "Godisaffären", img: "/escape/godisaffar.jpg", type: "number", answer: "25423836", instruction: "Bra jobbat! Ta ledtråd 5" }
+  ]
+},
+{
+  id: 8,
+  name: "Advent hos familjen Juliusson - Tredje advent",
+  category: "advent",
+  win: "Åh nej! Vi är inlåsta här inne. Tänk om tjuvarna kommer tillbaka?! Och snart är det jul. Vi måste komma ut...",
+  rooms: [
+    { id: 1, name: "Grannen i hus #8", img: "/escape/husnummer8.jpg", type: "letters", answer: "SURK", instruction: "Bra jobbat! Ta ledtråd 6" },
+    { id: 2, name: "Lekpark", img: "/escape/lekpark.jpg", type: "symbols", allowedSymbols: ["circle", "four leaf clover", "star", "heart", "triangle", "rectangle"], answerSequence: ["heart", "star", "circle", "square"], instruction: "Bra jobbat! Ta ledtråd 7" },
+    { id: 3, name: "Övergiven byggnad", img: "/escape/overgivenbyggnad.jpg", type: "symbols", allowedSymbols: ["circle", "square", "hexagon", "heart", "triangle", "diamond"], answerSequence: ["hexagon", "square", "rectangle", "triangle", "circle"], instruction: "Bra jobbat! Ta ledtråd 8" },
+    { id: 4, name: "Hus #2", img: "/escape/husnummer2.jpg", type: "colors", allowedColors: ["brown", "green", "pink", "red", "yellow", "blue"], answerSequence: ["white", "purple", "red", "green"], instruction: "Bra jobbat! Ta ledtråd 2" },
+    { id: 5, name: "Ingång övergiven byggnad", img: "/escape/ingangovergivenbyggnad.jpg", type: "letters", answer: "EHHLN", instruction: "Bra jobbat! Ta ledtråd 9" },
+    { id: 6, name: "Grannen i hus #6", img: "/escape/husnummer6.jpg", type: "colors", allowedColors: ["green", "brown", "pink", "red", "yellow", "blue"], answerSequence: ["red", "white", "pink", "red", "pink"], instruction: "Bra jobbat! Ta ledtråd 5" },
+    { id: 7, name: "Gatan", img: "/escape/gatan.jpg", type: "number", answer: "47945", instruction: "Bra jobbat! Ta ledtråd 3" },
+    { id: 8, name: "Grannen i hus #4", img: "/escape/husnummer4.jpg", type: "number", answer: "8264", instruction: "Bra jobbat! Ta ledtråd 4" },
+    { id: 9, name: "Hall i byggnaden", img: "/escape/hallibyggnad.jpg", type: "number", answer: "3148342" }
+  ]
+},
+{
+  id: 9,
+  name: "Advent hos familjen Juliusson - Fjärde advent",
+  category: "advent",
+  win: "Åh, vi tog oss ut! Vilken lycka! Nu ska vi ta med oss alla julklappar hem och vila upp oss för att orka fira jul snart. Det här var inte den julen som vi tänkte oss, men vi har varandra och vi kommer att få fira jul tillsammans. Vi i familjen Juliusson önskar er alla en god jul!",
+  rooms: [
+    { id: 1, name: "Vitt skåp", img: "/escape/vittskap.jpg", type: "letters", answer: "LXXIV", instruction: "Bra jobbat! Ta ledtråd 7" },
+    { id: 2, name: "Dörren ut", img: "/escape/dorrenut.jpg", type: "number", answer: "1345" },
+    { id: 3, name: "Brun dörr", img: "/escape/brundorr.jpg", type: "symbols", allowedSymbols: ["circle", "hexagon", "star", "heart", "triangle", "square"], answerSequence: ["heart", "triangle", "circle", "square", "hexagon"], instruction: "Bra jobbat! Ta ledtråd 9" },
+    { id: 4, name: "Kassaskåpet", img: "/escape/kassaskap.jpg", type: "symbols", allowedSymbols: ["circle", "square", "hexagon", "heart", "triangle", "diamond"], answerSequence: ["circle", "triangle", "square", "hexagon"], instruction: "Bra jobbat! Ta ledtråd 6" },
+    { id: 5, name: "Ventilationsluckan", img: "/escape/ventilationslucka.jpg", type: "colors", allowedColors: ["brown", "green", "pink", "red", "yellow", "blue"], answerSequence: ["red", "yellow", "blue", "green"], instruction: "Bra jobbat! Ta ledtråd 5" },
+    { id: 6, name: "Elskåpet", img: "/escape/elskap.jpg", type: "letters", answer: "BJKEST", instruction: "Bra jobbat! Ta ledtråd 4" },
+    { id: 7, name: "Kontorslådorna", img: "/escape/kontorslador.jpg", type: "colors", allowedColors: ["green", "purple", "pink", "red", "yellow", "blue"], answerSequence: ["blue", "purple", "red"], instruction: "Bra jobbat! Ta ledtråd 3" },
+    { id: 8, name: "Hall i byggnaden", img: "/escape/hallibyggnad2.jpg", type: "number", answer: "3092182365", instruction: "Bra jobbat! Ta ledtråd 8" },
+    { id: 9, name: "Skrivbordet", img: "/escape/skrivbordet1.jpg", type: "colors", allowedColors: ["brown", "green", "pink", "red", "yellow", "blue"], answerSequence: ["blue", "pink", "red", "green", "yellow"], instruction: "Bra jobbat! Ta ledtråd 2" }
+  ]
+},
 
 
 ];
