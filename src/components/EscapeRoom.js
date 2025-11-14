@@ -9,21 +9,28 @@ const SYMBOLS = [
   { value: "star", label: "★" },
   { value: "heart", label: "♥" },
   { value: "triangle", label: "▲" },
-  { value: "rectangle", label: "▭" }, // lagt till
+  { value: "rectangle", label: "▭" }, // rektangel
   { value: "cloud", label: "☁" },
   { value: "four leaf clover", label: "☘" }, // fyrklöver
-  { value: "hexagon", label: "⬡" } // hexagon form
+  { value: "hexagon", label: "⬡" }, // hexagon
+  { value: "cross", label: "✚" }, // kors
+  { value: "diamond", label: "◆" }, // diamant / romb
+  { value: "flower", label: "✿" } // blomma
 ];
 const COLORS = [
   { value: "yellow", hex: "#ffe600" },
-  { value: "green",  hex: "#2ecc40" },
-  { value: "blue",   hex: "#3498db" },
-  { value: "red",    hex: "#e74c3c" },
-  { value: "pink",   hex: "#ff69b4" },
+  { value: "green", hex: "#2ecc40" },
+  { value: "blue", hex: "#3498db" },
+  { value: "red", hex: "#e74c3c" },
+  { value: "pink", hex: "#ff69b4" },
   { value: "purple", hex: "#a259ff" },
   { value: "orange", hex: "#ff9500" }, // lagt till
-  { value: "brown",  hex: "#8b5e3c" } 
+  { value: "brown", hex: "#8b5e3c" },
+  { value: "white", hex: "#ffffff" },
+  { value: "black", hex: "#000000" },
+  { value: "grey", hex: "#808080" },
 ];
+
 
 // Du kan importera escapeGames från EscapeMenu.js eller ha samma struktur i App.js och skicka in som prop
 // Här förväntas du skicka in escapeGames, escapeGameId och roomId som props
@@ -61,8 +68,8 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
   if (!room) {
     return (
       <div className="room-container">
-      <button className="game-back-btn bottom" onClick={goBack}>Tillbaka</button>
-      <button className="game-back-btn bottom" style={{marginTop:12}} onClick={()=>window.location.reload()}>Till startsidan</button>
+        <button className="game-back-btn bottom" onClick={goBack}>Tillbaka</button>
+        <button className="game-back-btn bottom" style={{ marginTop: 12 }} onClick={() => window.location.reload()}>Till startsidan</button>
         <h2>Rummet hittades inte</h2>
       </div>
     );
@@ -93,11 +100,11 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
 
   return (
     <div className="room-container">
-  <h2>{room.name}</h2>
-  <img src={resolveImg(room.img)} alt={room.name} className="game-img-large" onError={(e)=>{e.target.style.display='none'}} />
+      <h2>{room.name}</h2>
+      <img src={resolveImg(room.img)} alt={room.name} className="game-img-large" onError={(e) => { e.target.style.display = 'none' }} />
       <div className="game-question-box">
-        <p>Svara på frågan (på papper):</p>
-  {room.type === "number" && (
+        <p>Ange koden.</p>
+        {room.type === "number" && (
           <input
             type="number"
             placeholder="Skriv en siffra"
@@ -106,7 +113,7 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
             className="game-input"
           />
         )}
-  {room.type === "letters" && (
+        {room.type === "letters" && (
           <input
             type="text"
             placeholder="Skriv bokstäver"
@@ -190,7 +197,7 @@ function EscapeRoom({ escapeGames, escapeGameId, roomId, goBack, markRoomSolved,
           </div>
         )}
       </div>
-        <button className="game-back-btn bottom" onClick={goBack}>Tillbaka</button>
+      <button className="game-back-btn bottom" onClick={goBack}>Tillbaka</button>
     </div>
   );
 }
