@@ -140,7 +140,7 @@ export const escapeGames = [
     rooms: [
       { id: 1, name: "Garderoben", img: "/escape/garderoben.jpg", type: "letters", answer: "PTRL", instruction: "Bra jobbat! Ta ledtråd 2" },
       { id: 2, name: "Skohyllan", img: "/escape/skohyllan.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "triangle", "rectangle"], answerSequence: ["square", "rectangle", "star", "heart", "circle"], instruction: "Bra jobbat! Ta ledtråd 4" },
-      { id: 3, name: "Passen", img: "/escape//passen.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "flower", "rectangle"], answerSequence: ["circle", "flower", "star", "heart"], instruction: "Bra jobbat! Ta ledtråd 7" },
+      { id: 3, name: "Passen", img: "/escape/passen.jpg", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "flower", "rectangle"], answerSequence: ["circle", "flower", "star", "heart"], instruction: "Bra jobbat! Ta ledtråd 7" },
       { id: 4, name: "Mediciner", img: "/escape/medicin.jpg", type: "number", answer: "32353841", instruction: "Bra jobbat! Ta ledtråd 5" },
       { id: 5, name: "Necessärer", img: "/escape/necessar.jpg", type: "colors", allowedColors: ["yellow", "green", "orange", "red", "pink", "blue"], answerSequence: ["blue", "green", "red"], instruction: "Bra jobbat! Ta ledtråd 3" },
       { id: 6, name: "Julklappar", img: "/escape/julklappar.jpg", type: "number", answer: "131121", instruction: "Bra jobbat! Ta ledtråd 8" },
