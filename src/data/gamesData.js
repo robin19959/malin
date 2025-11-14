@@ -223,6 +223,17 @@ export const escapeGames = [
       { id: 10, name: "Halldörren", img: "/escape/halldorren.jpg", type: "letters", answer: "DENOFI" }
     ]
   },
+  
+  {
+    id: 12,
+    name: "Testsepl uppladdat webben",
+    win: "Grattis ladda upp från webb funkade",
+    rooms: [
+      { id: 1, name: "Testfråga SVAR: Heart ", img: "/escape/testmapp/testbild.png", type: "symbols", allowedSymbols: ["circle", "square", "star", "heart", "triangle", "rectangle"], answerSequence: ["heart"], instruction: "Yes WEBBUPPLADD" },
+      { id: 2, name: "Testfråga2 SVAR: 104271 ", img: "/escape/testmapp/testbild2.png", type: "number", answer: "104271", instruction: "Yes WEBBUPPLADD" },
+
+    ]
+  },
 
   {
     id: 7,
